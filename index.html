@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>창영 ♥ 은서 결혼합니다</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Gowun Batang', 'Noto Serif KR', serif;
+            background: #faf9f7;
+            color: #3a3a3a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f8e8e0 0%, #fdf2ed 30%, #f5e6dc 70%, #f0d9cb 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(200,160,140,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(200,160,140,0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .invite-label {
+            font-size: 0.85rem;
+            letter-spacing: 8px;
+            color: #b08968;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .couple-names {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #5a4a42;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .couple-names .heart {
+            display: block;
+            font-size: 1.2rem;
+            color: #c9967e;
+            margin: 5px 0;
+        }
+
+        .wedding-date-hero {
+            font-size: 1rem;
+            color: #9a8578;
+            letter-spacing: 3px;
+            margin-top: 30px;
+            font-weight: 300;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 1;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 1px;
+            height: 40px;
+            background: #b08968;
+            margin: 0 auto 8px;
+        }
+
+        .scroll-indicator small {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #b08968;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            color: #b08968;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background: #c9967e;
+            margin: 15px auto 0;
+        }
+
+        /* Greeting */
+        .greeting {
+            background: #fff;
+            text-align: center;
+        }
+
+        .greeting p {
+            font-size: 0.95rem;
+            line-height: 2.2;
+            color: #5a5a5a;
+            font-weight: 300;
+        }
+
+        .greeting .highlight {
+            font-size: 1.1rem;
+            color: #5a4a42;
+            font-weight: 400;
+            margin: 30px 0;
+        }
+
+        /* Parents */
+        .parents {
+            background: #fdf9f6;
+            text-align: center;
+        }
+
+        .parents-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 30px;
+        }
+
+        .parent-side {
+            font-size: 0.9rem;
+            line-height: 2;
+            color: #6a6a6a;
+        }
+
+        .parent-side .role {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: #b08968;
+            margin-bottom: 10px;
+        }
+
+        .parent-side .child-name {
+            font-size: 1.05rem;
+            color: #5a4a42;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        /* Calendar */
+        .calendar-section {
+            background: #fff;
+            text-align: center;
+        }
+
+        .calendar {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .calendar-month {
+            font-size: 1.3rem;
+            color: #5a4a42;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            margin-bottom: 30px;
+        }
+
+        .calendar-grid .day-header {
+            font-size: 0.7rem;
+            color: #b08968;
+            padding: 8px 0;
+            letter-spacing: 1px;
+        }
+
+        .calendar-grid .day {
+            font-size: 0.85rem;
+            padding: 8px 0;
+            color: #888;
+        }
+
+        .calendar-grid .day.sun { color: #d4836a; }
+
+        .calendar-grid .day.today {
+            background: #c9967e;
+            color: #fff;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .calendar-grid .day.empty { visibility: hidden; }
+
+        .wedding-datetime {
+            font-size: 1rem;
+            color: #5a4a42;
+            line-height: 1.8;
+        }
+
+        .wedding-datetime .time {
+            font-size: 0.9rem;
+            color: #9a8578;
+        }
+
+        /* D-day Counter */
+        .dday-counter {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .dday-item {
+            text-align: center;
+        }
+
+        .dday-item .number {
+            font-size: 1.8rem;
+            color: #c9967e;
+            font-weight: 300;
+        }
+
+        .dday-item .label {
+            font-size: 0.7rem;
+            color: #aaa;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* Location */
+        .location {
+            background: #fdf9f6;
+            text-align: center;
+        }
+
+        .location-name {
+            font-size: 1.2rem;
+            color: #5a4a42;
+            margin-bottom: 8px;
+        }
+
+        .location-address {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #ede6df;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b08968;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .transport-info {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .transport-item {
+            margin-bottom: 15px;
+        }
+
+        .transport-item .type {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #b08968;
+            margin-bottom: 5px;
+        }
+
+        .transport-item .desc {
+            font-size: 0.85rem;
+            color: #6a6a6a;
+            line-height: 1.7;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: #fff;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: #f0e6dc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b08968;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        .gallery-item:first-child {
+            grid-column: 1 / -1;
+            aspect-ratio: 16/9;
+        }
+
+        /* Account */
+        .account {
+            background: #fdf9f6;
+            text-align: center;
+        }
+
+        .account-toggle {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid #c9967e;
+            border-radius: 30px;
+            color: #c9967e;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: transparent;
+            font-family: inherit;
+            margin: 8px;
+        }
+
+        .account-toggle:hover {
+            background: #c9967e;
+            color: #fff;
+        }
+
+        .account-details {
+            display: none;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .account-details.open {
+            display: block;
+        }
+
+        .account-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0e6dc;
+        }
+
+        .account-item .bank {
+            font-size: 0.8rem;
+            color: #b08968;
+            margin-bottom: 5px;
+        }
+
+        .account-item .number {
+            font-size: 0.9rem;
+            color: #5a4a42;
+            margin-bottom: 3px;
+        }
+
+        .account-item .holder {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .copy-btn {
+            font-size: 0.7rem;
+            color: #c9967e;
+            border: 1px solid #c9967e;
+            background: transparent;
+            padding: 4px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-top: 5px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #c9967e;
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, #f8e8e0 0%, #fdf2ed 100%);
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            color: #5a4a42;
+            font-weight: 400;
+        }
+
+        .footer .date {
+            font-size: 0.8rem;
+            color: #b08968;
+            margin-top: 10px;
+            letter-spacing: 3px;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating petals */
+        .petal {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(ellipse at center, #f0c8b8 0%, #e8b0a0 50%, transparent 70%);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1000;
+            animation: falling linear forwards;
+        }
+
+        @keyframes falling {
+            0% { opacity: 0; transform: translateX(0) rotate(0deg); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.4; }
+            100% { opacity: 0; transform: translateX(100px) rotate(360deg) translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <p class="invite-label">WEDDING INVITATION</p>
+            <div class="couple-names">
+                창영
+                <span class="heart">♥</span>
+                은서
+            </div>
+            <p class="wedding-date-hero">2026. 09. 19. SAT PM 12:20</p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+            <small>SCROLL</small>
+        </div>
+    </div>
+
+    <!-- Greeting -->
+    <section class="greeting fade-in">
+        <div class="section-title">INVITATION</div>
+        <p class="highlight">서로의 마주보며 다져온 사랑을<br>이제 함께 한 곳을 바라보며<br>걸어가고자 합니다.</p>
+        <p>
+            저희 두 사람이 사랑의 이름으로<br>
+            한 길을 걸어가고자 합니다.<br><br>
+            바쁘시더라도 오셔서<br>
+            축복해 주시면 감사하겠습니다.
+        </p>
+    </section>
+
+    <!-- Parents -->
+    <section class="parents fade-in">
+        <div class="section-title">PARENTS</div>
+        <div class="parents-info">
+            <div class="parent-side">
+                <div class="role">신랑측</div>
+                <div>○○○ · ○○○ 의 아들</div>
+                <div class="child-name">창영</div>
+            </div>
+            <div class="parent-side">
+                <div class="role">신부측</div>
+                <div>○○○ · ○○○ 의 딸</div>
+                <div class="child-name">은서</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar -->
+    <section class="calendar-section fade-in">
+        <div class="section-title">CALENDAR</div>
+        <div class="calendar">
+            <div class="calendar-month">2026년 9월</div>
+            <div class="calendar-grid">
+                <div class="day-header">SUN</div>
+                <div class="day-header">MON</div>
+                <div class="day-header">TUE</div>
+                <div class="day-header">WED</div>
+                <div class="day-header">THU</div>
+                <div class="day-header">FRI</div>
+                <div class="day-header">SAT</div>
+
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+
+                <div class="day sun">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+                <div class="day">9</div>
+                <div class="day">10</div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+
+                <div class="day sun">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                <div class="day">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                <div class="day today">19</div>
+
+                <div class="day sun">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day">25</div>
+                <div class="day">26</div>
+
+                <div class="day sun">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+            </div>
+            <div class="wedding-datetime">
+                2026년 9월 19일 토요일<br>
+                <span class="time">오후 12시 20분</span>
+            </div>
+            <div class="dday-counter" id="dday-counter"></div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section class="location fade-in">
+        <div class="section-title">LOCATION</div>
+        <div class="location-name">○○○ 웨딩홀</div>
+        <div class="location-address">
+            서울특별시 ○○구 ○○로 123<br>
+            ○○○ 웨딩홀 ○층 그랜드볼룸
+        </div>
+        <div class="map-placeholder">
+            지도 영역 (카카오맵/네이버맵 연동 가능)
+        </div>
+        <div class="transport-info">
+            <div class="transport-item">
+                <div class="type">SUBWAY</div>
+                <div class="desc">○호선 ○○역 ○번 출구에서 도보 5분</div>
+            </div>
+            <div class="transport-item">
+                <div class="type">BUS</div>
+                <div class="desc">○○○, ○○○번 ○○○ 정류장 하차</div>
+            </div>
+            <div class="transport-item">
+                <div class="type">PARKING</div>
+                <div class="desc">건물 내 주차 가능 (2시간 무료)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery fade-in">
+        <div class="section-title">GALLERY</div>
+        <div class="gallery-grid">
+            <div class="gallery-item">사진 1</div>
+            <div class="gallery-item">사진 2</div>
+            <div class="gallery-item">사진 3</div>
+            <div class="gallery-item">사진 4</div>
+            <div class="gallery-item">사진 5</div>
+        </div>
+    </section>
+
+    <!-- Account -->
+    <section class="account fade-in">
+        <div class="section-title">ACCOUNT</div>
+        <p style="font-size:0.9rem; color:#6a6a6a; margin-bottom:25px; line-height:1.8;">
+            축하의 마음을 담아<br>축의금을 전달해 보세요.
+        </p>
+        <button class="account-toggle" onclick="toggleAccount('groom')">신랑측 계좌</button>
+        <button class="account-toggle" onclick="toggleAccount('bride')">신부측 계좌</button>
+
+        <div class="account-details" id="groom-account">
+            <div class="account-item">
+                <div class="bank">○○은행</div>
+                <div class="number">000-0000-0000-00</div>
+                <div class="holder">○○○ (신랑 부)</div>
+                <button class="copy-btn" onclick="copyText('000-0000-0000-00')">복사</button>
+            </div>
+            <div class="account-item">
+                <div class="bank">○○은행</div>
+                <div class="number">000-0000-0000-00</div>
+                <div class="holder">박창영 (신랑)</div>
+                <button class="copy-btn" onclick="copyText('000-0000-0000-00')">복사</button>
+            </div>
+        </div>
+
+        <div class="account-details" id="bride-account">
+            <div class="account-item">
+                <div class="bank">○○은행</div>
+                <div class="number">000-0000-0000-00</div>
+                <div class="holder">○○○ (신부 부)</div>
+                <button class="copy-btn" onclick="copyText('000-0000-0000-00')">복사</button>
+            </div>
+            <div class="account-item">
+                <div class="bank">○○은행</div>
+                <div class="number">000-0000-0000-00</div>
+                <div class="holder">○은서 (신부)</div>
+                <button class="copy-btn" onclick="copyText('000-0000-0000-00')">복사</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer fade-in">
+        <p>창영 ♥ 은서</p>
+        <p class="date">2026. 09. 19</p>
+    </div>
+</div>
+
+<script>
+    // Scroll fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // D-day counter
+    function updateDday() {
+        const wedding = new Date('2026-09-19T12:20:00');
+        const now = new Date();
+        const diff = wedding - now;
+
+        if (diff <= 0) {
+            document.getElementById('dday-counter').innerHTML = '<p style="color:#c9967e;">결혼식 당일입니다!</p>';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('dday-counter').innerHTML = `
+            <div class="dday-item"><div class="number">${days}</div><div class="label">DAYS</div></div>
+            <div class="dday-item"><div class="number">${hours}</div><div class="label">HOURS</div></div>
+            <div class="dday-item"><div class="number">${minutes}</div><div class="label">MIN</div></div>
+            <div class="dday-item"><div class="number">${seconds}</div><div class="label">SEC</div></div>
+        `;
+    }
+    updateDday();
+    setInterval(updateDday, 1000);
+
+    // Account toggle
+    function toggleAccount(side) {
+        const el = document.getElementById(side + '-account');
+        el.classList.toggle('open');
+    }
+
+    // Copy to clipboard
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('계좌번호가 복사되었습니다.');
+        });
+    }
+
+    // Floating petals
+    function createPetal() {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        petal.style.width = (Math.random() * 8 + 8) + 'px';
+        petal.style.height = petal.style.width;
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 7000);
+    }
+    setInterval(createPetal, 800);
+</script>
+
+</body>
+</html>
