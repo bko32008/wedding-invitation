@@ -909,25 +909,27 @@
     </div>
 </div>
 
-<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=bff02ade8537f0a746a7222cb356d403"></script>
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=bff02ade8537f0a746a7222cb356d403&autoload=false"></script>
 <script>
     // Kakao Map
-    const mapContainer = document.getElementById('kakao-map');
-    const mapOption = {
-        center: new kakao.maps.LatLng(37.5685, 126.8974),
-        level: 4
-    };
-    const map = new kakao.maps.Map(mapContainer, mapOption);
+    kakao.maps.load(function() {
+        const mapContainer = document.getElementById('kakao-map');
+        const mapOption = {
+            center: new kakao.maps.LatLng(37.5685, 126.8974),
+            level: 4
+        };
+        const map = new kakao.maps.Map(mapContainer, mapOption);
 
-    const marker = new kakao.maps.Marker({
-        position: new kakao.maps.LatLng(37.5685, 126.8974)
-    });
-    marker.setMap(map);
+        const marker = new kakao.maps.Marker({
+            position: new kakao.maps.LatLng(37.5685, 126.8974)
+        });
+        marker.setMap(map);
 
-    const infowindow = new kakao.maps.InfoWindow({
-        content: '<div style="padding:5px 10px;font-size:12px;white-space:nowrap;">상암 월드컵 컨벤션</div>'
+        const infowindow = new kakao.maps.InfoWindow({
+            content: '<div style="padding:5px 10px;font-size:12px;white-space:nowrap;">상암 월드컵 컨벤션</div>'
+        });
+        infowindow.open(map, marker);
     });
-    infowindow.open(map, marker);
 
     // Scroll fade-in animation
     const observer = new IntersectionObserver((entries) => {
