@@ -592,39 +592,50 @@
         .map-buttons {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 14px;
             margin-bottom: 40px;
         }
 
         .map-buttons a {
-            flex: 1;
-            max-width: 130px;
-            padding: 14px 10px;
-            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 90px;
+            padding: 18px 10px 14px;
+            border-radius: 16px;
             background: #fff;
-            border: 1px solid #e0d6cc;
+            border: 1px solid #e8e2d9;
             text-decoration: none;
             color: #5a4a42;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             font-family: inherit;
             transition: all .25s ease;
             text-align: center;
-            line-height: 1.4;
         }
 
-        .map-buttons a .btn-label {
-            display: block;
-            font-size: 0.7rem;
-            color: #b08968;
-            margin-bottom: 4px;
-            letter-spacing: 1px;
+        .map-buttons a .map-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+        .map-buttons a .map-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .map-buttons a.naver-btn .map-icon { background: #03C75A; }
+        .map-buttons a.kakao-btn .map-icon { background: #FEE500; }
+        .map-buttons a.tmap-btn .map-icon { background: #EF4135; }
 
         .map-buttons a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border-color: #c9967e;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
         }
 
         .transport-info {
@@ -792,16 +803,22 @@
         </div>
 
         <div class="map-buttons">
-            <a href="https://map.naver.com/v5/search/상암월드컵컨벤션" target="_blank">
-                <span class="btn-label">NAVER</span>
+            <a class="naver-btn" href="https://map.naver.com/v5/search/상암월드컵컨벤션" target="_blank">
+                <span class="map-icon">
+                    <svg viewBox="0 0 24 24" fill="#fff"><path d="M16.27 10.76L7.38 4H4v16h3.73V13.24L16.62 20H20V4h-3.73z"/></svg>
+                </span>
                 네이버지도
             </a>
-            <a href="https://map.kakao.com/link/search/상암월드컵컨벤션" target="_blank">
-                <span class="btn-label">KAKAO</span>
+            <a class="kakao-btn" href="https://map.kakao.com/link/search/상암월드컵컨벤션" target="_blank">
+                <span class="map-icon">
+                    <svg viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67l-.96 3.56c-.08.3.26.54.52.37l4.23-2.82c.5.05 1.02.08 1.55.08 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/></svg>
+                </span>
                 카카오맵
             </a>
-            <a href="https://tmap.life/" target="_blank">
-                <span class="btn-label">TMAP</span>
+            <a class="tmap-btn" href="https://tmap.life/" target="_blank">
+                <span class="map-icon">
+                    <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+                </span>
                 티맵
             </a>
         </div>
