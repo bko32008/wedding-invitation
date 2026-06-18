@@ -490,64 +490,87 @@
         }
 
         .map-wrapper {
-            margin: 30px 0 18px;
+            margin: 30px 0 24px;
             overflow: hidden;
-            border-radius: 18px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #efe8e0;
         }
-        
+
         .map-wrapper iframe {
             width: 100%;
-            height: 280px;
+            height: 320px;
             border: 0;
+            display: block;
         }
-        
+
         .map-buttons {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 35px;
+            gap: 12px;
+            margin-bottom: 40px;
         }
-        
+
         .map-buttons a {
             flex: 1;
-            max-width: 140px;
-            padding: 12px 10px;
-            border-radius: 12px;
-            background: #faf8f5;
-            border: 1px solid #e8e2d9;
+            max-width: 130px;
+            padding: 14px 10px;
+            border-radius: 14px;
+            background: #fff;
+            border: 1px solid #e0d6cc;
             text-decoration: none;
-            color: #555;
-            font-size: 13px;
+            color: #5a4a42;
+            font-size: 0.8rem;
             font-weight: 500;
-            transition: all .2s ease;
+            font-family: inherit;
+            transition: all .25s ease;
+            text-align: center;
+            line-height: 1.4;
         }
-        
+
+        .map-buttons a .btn-label {
+            display: block;
+            font-size: 0.7rem;
+            color: #b08968;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
         .map-buttons a:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-color: #c9967e;
         }
-        
+
         .transport-info {
             text-align: left;
             margin-top: 20px;
+            padding: 24px;
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid #efe8e0;
         }
-        
+
         .transport-item {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
-        
+
+        .transport-item:last-child {
+            margin-bottom: 0;
+        }
+
         .transport-item .type {
-            font-size: 12px;
+            font-size: 0.7rem;
             letter-spacing: 2px;
-            color: #b08d57;
+            color: #b08968;
             font-weight: 600;
             margin-bottom: 8px;
         }
-        
+
         .transport-item .desc {
-            color: #666;
+            color: #6a6a6a;
             line-height: 1.8;
-            font-size: 14px;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -677,22 +700,24 @@
     
         <div class="map-wrapper">
             <iframe
-                src="https://maps.google.com/maps?q=상암월드컵컨벤션&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                loading="lazy">
+                src="https://maps.google.com/maps?q=37.5685,126.8974&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"
+                allowfullscreen>
             </iframe>
         </div>
-    
+
         <div class="map-buttons">
             <a href="https://map.naver.com/v5/search/상암월드컵컨벤션" target="_blank">
-                📍 네이버지도
+                <span class="btn-label">NAVER</span>
+                네이버지도
             </a>
-    
             <a href="https://map.kakao.com/link/search/상암월드컵컨벤션" target="_blank">
-                🗺 카카오맵
+                <span class="btn-label">KAKAO</span>
+                카카오맵
             </a>
-    
             <a href="https://tmap.life/" target="_blank">
-                🚗 티맵
+                <span class="btn-label">TMAP</span>
+                티맵
             </a>
         </div>
     
