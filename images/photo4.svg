@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8e8e0"/>
+      <stop offset="100%" style="stop-color:#fdf2ed"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg4)"/>
+  <line x1="170" y1="150" x2="230" y2="150" stroke="#c9967e" stroke-width="0.5"/>
+  <text x="200" y="190" text-anchor="middle" font-family="serif" font-size="22" fill="#5a4a42">C &amp; E</text>
+  <line x1="170" y1="205" x2="230" y2="205" stroke="#c9967e" stroke-width="0.5"/>
+  <text x="200" y="260" text-anchor="middle" font-family="serif" font-size="14" fill="#b08968" letter-spacing="3">PROMISE</text>
+</svg>
